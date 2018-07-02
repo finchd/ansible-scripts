@@ -1,0 +1,34 @@
+---
+#- name: configure Ansible user defaults (~/.ansible.cfg)
+
+#Setup additional tools for Ansible usage + playbook development
+- name: Install ARA OS dependencies (yum)
+  yum:
+    name: "{{ packages }}"
+  become: yes
+  vars:
+    packages:
+    - gcc
+    - python-devel
+    - libffi-devel
+    - openssl-devel
+    - redhat-rpm-config
+  when: ansible_os_family == "RedHat" 
+
+- name: Install ARA OS dependencies (apt)
+  apt:
+    name: "{{ packages }}"
+  become: yes
+  vars:
+    packages:
+      - gcc
+      - python-dev
+      - libffi-dev
+      - libssl-dev
+  when: ansible_os_family == "Debian"
+    
+- name: Install additional tools for Ansible usage + playbook development
+  pip:
+    name: cookiecutter molecule ara
+    extra_args: --user
+    state: latest

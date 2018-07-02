@@ -1,0 +1,5 @@
+---
+- hosts: localhost
+  tasks:
+    - include_tasks: setup_ansible_tasks.yml
+# test for yaml comments
