@@ -1,0 +1,17 @@
+---
+#    - name: Install GitHub's `hub` from GitHub
+
+# TODO add "latest" checking.
+#- name: Make /tmp/ temporary folder
+
+- name: Download hub release tarball v2.5.1
+  get_url:
+    url: https://github.com/github/hub/releases/download/v2.5.1/hub-linux-amd64-2.5.1.tgz
+    dest: ~/tmp/
+    mode: 0700
+
+#- name: Check if it matches last-known file
+
+#- name: Move file in ~/bin
+
+#- name: Make file executable only for the user

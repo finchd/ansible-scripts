@@ -1,0 +1,20 @@
+---
+- hosts: localhost
+  vars:
+    - rclone_setup_tmp_dir: '/tmp/test/'
+    - rclone_version: '1.42'
+  tasks:
+    - name: install rclone - download zip
+      get_url:
+        url: https://github.com/ncw/rclone/releases/download/v{{ rclone_version }}/rclone-v{{ rclone_version }}-linux-amd64.zip
+        dest: "{{ rclone_setup_tmp_dir }}"
+
+    - name: install rclone - unzip package
+      unarchive:
+        src: "{{ rclone_setup_tmp_dir }}/rclone-v{{ rclone_version }}-linux-amd64.zip"
+        dest: "{{ rclone_setup_tmp_dir}}"
+        copy: no
+        creates: '/tmp/rclone_setup/rclone-v{{ rclone_version }}-linux-amd64'
+      when: rclone_version != 'beta'
+      become: yes
+

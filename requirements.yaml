@@ -1,0 +1,6 @@
+- src: stefangweichinger.rclone
+  version: v1.42
+- src: robertdebock.mitogen
+  version: 1.1.1
+- src: jdauphant.ssh-config
+  version: v1.0

@@ -1,5 +1,17 @@
----
 - hosts: localhost
+  roles:
+    - role: stefangweichinger.rclone
+      vars:
+        - rclone_version: '1.42'
+    - role: robertdebock.mitogen
+      vars:
+        - mitogen_ansible_file: ~/.ansible.cfg
+      become: true
   tasks:
-    - include_tasks: setup_ansible_tasks.yml
+    - include_tasks: tasks/setup_ansible_tasks.yaml # installs cookiecutter, ara, and ansible-lint
+  #    - include_tasks: tasks/install_gh-md-toc.yaml
+    - include_tasks: tasks/install_kubectx.yaml
+    - include_tasks: tasks/install_jid.yaml
+    - include_tasks: tasks/install_ec2-dynamic_inventory.yaml
+
 # test for yaml comments

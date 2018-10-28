@@ -1,0 +1,29 @@
+---
+#    - name: Install github-markdown-toc from GitHub
+
+# TODO add "latest" checking.
+#- name: Make /tmp/ temporary folder
+
+- name: Download single-file script kubectx v0.6.1 from GitHub
+  get_url:
+    url: https://raw.githubusercontent.com/ahmetb/kubectx/v0.6.1/kubectx
+    dest: ~/bin/kubectx
+    mode: 0700
+
+- name: Download single-file script kubens v0.6.1 from GitHub
+  get_url:
+    url: https://raw.githubusercontent.com/ahmetb/kubectx/v0.6.1/kubens
+    dest: ~/bin/kubens
+    mode: 0700
+
+#- name: Check if it matches last-known file
+
+#- name: Download single-file script from last tested commit
+#  get_url:
+#    url: https://raw.githubusercontent.com/ekalinin/github-markdown-toc/41236dc086b240a3018484af84896707de6cdf88/gh-md-toc
+#    dest: ~/bin/gh-md-toc
+#    mode: 0700
+
+#- name: Move file in ~/bin
+
+#- name: Make file executable only for the user

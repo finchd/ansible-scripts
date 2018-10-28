@@ -1,0 +1,29 @@
+---
+#    - name: Install github-markdown-toc from GitHub
+
+# TODO add "latest" checking.
+#- name: Make /tmp/ temporary folder
+
+- name: Install JID - Download release zip from GitHub
+  unarchive:
+    url: https://github.com/simeji/jid/releases/download/0.7.2/jid_linux_amd64.zip
+    dest: ~/
+    copy: no
+
+- name: Install JID - Copy binary into ~/bin
+  copy:
+    url: ~/jid_linux_amd64
+    dest: ~/bin/jid
+    mode: 0700
+
+#- name: Check if it matches last-known file
+
+#- name: Download single-file script from last tested commit
+#  get_url:
+#    url: https://raw.githubusercontent.com/ekalinin/github-markdown-toc/41236dc086b240a3018484af84896707de6cdf88/gh-md-toc
+#    dest: ~/bin/gh-md-toc
+#    mode: 0700
+
+#- name: Move file in ~/bin
+
+#- name: Make file executable only for the user

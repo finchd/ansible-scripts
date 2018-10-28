@@ -1,7 +1,7 @@
 --
  - hosts:
-   - penguin-lab-sys
-   - '!gentoo.cs.pdx.edu'
+   - ubuntu_machines
+   - '!not_this_one'
  - tasks:
    - include: <other_task.yaml>
    - apt: name=gcc state=latest
