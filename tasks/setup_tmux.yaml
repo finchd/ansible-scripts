@@ -1,0 +1,9 @@
+---
+# need to discover and set tmux_version, but I net that moving forward, all my machines have tmux 2.1+
+
+- name: Enable mouse mode for Tmux 2.1+
+  lineinfile:
+    path: ~/.tmux.conf
+    create: true
+    line: "set -g mouse on"
+  # when: tmux_version > "2.1"

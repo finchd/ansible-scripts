@@ -1,0 +1,14 @@
+---
+- name: gem_module - Install travis gem
+  gem:
+    name: travis
+    state: present
+    version: 1.8.9
+    user_install: true
+  when: use_gem_module
+
+- name: Shell - Install travis gem
+  shell: gem install --user-install -n ~/.local/bin -v 1.8.9 travis
+  args:
+    creates: ~/.local/bin/travis
+  when: not use_gem_module

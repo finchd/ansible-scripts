@@ -1,7 +1,8 @@
---
- - hosts:
+---
+- hosts:
    - ubuntu_machines
    - '!not_this_one'
- - tasks:
-   - include: <other_task.yaml>
-   - apt: name=gcc state=latest
+  tasks:
+   # - include: <other_task.yaml>
+   - name: Install latest GCC
+     apt: name=gcc state=present

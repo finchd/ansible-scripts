@@ -1,24 +1,24 @@
 ---
-#- name: configure Ansible user defaults (~/.ansible.cfg)
+# - name: configure Ansible user defaults (~/.ansible.cfg)
 
-#Setup additional tools for Ansible usage + playbook development
+# Setup additional tools for Ansible usage + playbook development
 - name: Install ARA OS dependencies (yum)
   yum:
     name: "{{ packages }}"
-  become: yes
+  become: true
   vars:
     packages:
-    - gcc
-    - python-devel
-    - libffi-devel
-    - openssl-devel
-    - redhat-rpm-config
+      - gcc
+      - python-devel
+      - libffi-devel
+      - openssl-devel
+      - redhat-rpm-config
   when: ansible_os_family == "RedHat"
 
 - name: Install ARA OS dependencies (apt)
   apt:
     name: "{{ packages }}"
-  become: yes
+  become: true
   vars:
     packages:
       - gcc

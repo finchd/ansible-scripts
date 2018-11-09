@@ -1,1 +1,3 @@
-complete -C '/usr/local/bin/aws_completer' aws
+---
+- name: Add AWS CLI to Bash tab-completions
+  shell: echo "complete -C '/usr/local/bin/aws_completer' aws" >> ~/.bashrc

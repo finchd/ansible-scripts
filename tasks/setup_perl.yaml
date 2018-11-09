@@ -1,0 +1,23 @@
+---
+# TODO add "latest" checking.
+
+- name: Set PERL5LIB in Bash Env
+  shell: echo 'export PERL5LIB=~/.local/lib/perl5' >> ~/.bashrc
+
+- name: Download release bundle for diff-so-fancy
+  unarchive:
+    url: https://github.com/so-fancy/diff-so-fancy/archive/v1.2.0.tar.gz
+    dest: ~/tmp
+    copy: false
+
+- name: Install diff-so-fancy - Copy library into ~/.local/lib
+  copy:
+    src: ~/tmp/diff-so-fancy-1.2.0/lib/DiffHighlight.pm
+    dest: ~/.local/lib/perl5/
+    mode: 0700
+
+- name: Install diff-so-fancy - Copy binary into ~/.local/bin
+  copy:
+    src: ~/tmp/diff-so-fancy-1.2.0/diff-so-fancy
+    dest: ~/.local/bin
+    mode: 0700

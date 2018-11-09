@@ -1,0 +1,19 @@
+---
+- name: gem_module - Install latest gem of github-changelog-generator
+  gem:
+    name: github-changelog-generator
+    state: latest
+    user_install: true
+  when: use_gem_module
+
+- name: Shell - Install latest gem of github-changelog-generator
+  shell: gem install --user-install -n ~/.local/bin github-changelog-generator
+  args:
+    creates: ~/.local/bin/github-changelog-generator
+  when: not use_gem_module
+
+- name: Download latest manpage of github-changelog-generator (git-generate-changelog)
+  get_url:
+    url: https://raw.githubusercontent.com/github-changelog-generator/github-changelog-generator/master/man/git-generate-changelog.1
+    dest: ~/.local/share/man/man1/git-generate-changelog.1
+    mode: 0644
