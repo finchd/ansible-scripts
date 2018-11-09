@@ -6,13 +6,13 @@
 
 - name: Install JID - Download release zip from GitHub
   unarchive:
-    url: https://github.com/simeji/jid/releases/download/0.7.2/jid_linux_amd64.zip
+    src: https://github.com/simeji/jid/releases/download/0.7.2/jid_linux_amd64.zip
     dest: ~/
     copy: false
 
 - name: Install JID - Copy binary into ~/bin
   copy:
-    url: ~/jid_linux_amd64
+    src: ~/jid_linux_amd64
     dest: ~/bin/jid
     mode: 0700
 

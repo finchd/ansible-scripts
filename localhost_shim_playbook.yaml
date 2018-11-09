@@ -12,6 +12,5 @@
   #    - include_tasks: tasks/install_gh-md-toc.yaml
     - include_tasks: tasks/install_kubectx.yaml
     - include_tasks: tasks/install_jid.yaml
-    - include_tasks: tasks/install_ec2-dynamic_inventory.yaml
+    - include_tasks: tasks/install_ec2_dynamic_inventory.yaml
 
-# test for yaml comments

@@ -1,6 +1,10 @@
 language: python
 python: 2.7
 sudo: required
+addons:
+  apt:
+    packages:
+      - python-apt
 matrix:
   fast_finish: true
   include:

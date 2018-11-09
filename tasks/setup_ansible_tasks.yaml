@@ -29,6 +29,9 @@
 
 - name: Install additional tools for Ansible usage + playbook development
   pip:
-    name: cookiecutter molecule ara
+    name:
+      - cookiecutter
+      - molecule
+      - ara
     extra_args: --user
     state: latest
