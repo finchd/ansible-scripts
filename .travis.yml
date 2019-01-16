@@ -16,7 +16,7 @@ matrix:
     - name: "OS X"
       os: osx
 install:
-  - "pip install -r requirements.txt"
+  - "sudo pip install -r requirements.txt"
   - "ansible-galaxy install -r requirements.yaml"
 script:
   - "ansible-lint tasks/*.yaml"
