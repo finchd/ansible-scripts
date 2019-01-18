@@ -3,21 +3,22 @@ addons:
   apt:
     packages:
       - python-apt
+  if: NOT os = osx
 matrix:
   fast_finish: true
   include:
-    - name: "Ubuntu Precise Pangolin 12.04"
-      dist: precise
     - name: "Ubuntu Trusty Tair 14.04"
       dist: trusty
     - name: "Ubuntu Xenial Xerus 16.04"
       dist: xenial
-  allow_failures:
-    - name: "OS X"
+   - name: "OS X"
       os: osx
+  allow_failures:
+    - name: "Ubuntu Precise Pangolin 12.04"
+      dist: precise
 install:
   - "sudo pip install -r requirements.txt"
   - "ansible-galaxy install -r requirements.yaml"
 script:
   - "ansible-lint tasks/*.yaml"
-  - "ansible-playbook localhost_shim_playbook.yaml"
+  - "ansible-playbook -e ansible_python_interpreter=/usr/bin/python localhost_shim_playbook.yaml"
