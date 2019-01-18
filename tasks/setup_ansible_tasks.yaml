@@ -33,5 +33,4 @@
       - cookiecutter
       - molecule
       - ara
-    extra_args: --user
     state: latest
