@@ -4,16 +4,24 @@
 # TODO add "latest" checking.
 # - name: Make /tmp/ temporary folder
 
+# 0700 because nobody else should really know what I have installed as a user, much less be able to add/remove.
+- name: Create ~/.local/bin
+  file:
+    path: ~/.local/bin
+    state: directory
+    mode: 0700
+    recurse: yes
+
 - name: Download single-file script kubectx v0.6.1 from GitHub
   get_url:
     url: https://raw.githubusercontent.com/ahmetb/kubectx/v0.6.1/kubectx
-    dest: ~/bin/kubectx
+    dest: ~/.local/bin/kubectx
     mode: 0700
 
 - name: Download single-file script kubens v0.6.1 from GitHub
   get_url:
     url: https://raw.githubusercontent.com/ahmetb/kubectx/v0.6.1/kubens
-    dest: ~/bin/kubens
+    dest: ~/.local/bin/kubens
     mode: 0700
 
 # - name: Check if it matches last-known file
@@ -24,6 +32,6 @@
 #     dest: ~/bin/gh-md-toc
 #     mode: 0700
 
-# - name: Move file in ~/bin
+# - name: Move file in ~/.local/bin
 
 # - name: Make file executable only for the user
