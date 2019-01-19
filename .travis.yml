@@ -1,7 +1,4 @@
 sudo: required
-os:
-  - linux
-  - osx
 addons:
   apt:
     packages:
@@ -11,14 +8,17 @@ matrix:
   fast_finish: true
   include:
     - name: "Ubuntu Trusty Tair 14.04"
+      os: linux
       dist: trusty
     - name: "Ubuntu Xenial Xerus 16.04"
+      os: linux
       dist: xenial
-    - name: "OS X"
-      os: osx
   allow_failures:
     - name: "Ubuntu Precise Pangolin 12.04"
+      os: linux
       dist: precise
+   - name: "OS X"
+      os: osx
 install:
   - "sudo pip install -r requirements.txt"
   - "ansible-galaxy install -r requirements.yaml"
