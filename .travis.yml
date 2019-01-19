@@ -22,4 +22,4 @@ install:
   - "ansible-galaxy install -r requirements.yaml"
 script:
   - "ansible-lint tasks/*.yaml"
-  - "ansible-playbook localhost_shim_playbook.yaml"
+  - "ansible-playbook -e ansible_python_interpreter=/usr/bin/python localhost_shim_playbook.yaml"
