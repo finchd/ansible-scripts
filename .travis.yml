@@ -1,24 +1,26 @@
-language: python
-python: 2.7
 sudo: required
 addons:
   apt:
     packages:
       - python-apt
+  if: NOT os = osx
 matrix:
   fast_finish: true
   include:
-    - name: "Ubuntu Precise Pangolin 12.04"
-      dist: precise
     - name: "Ubuntu Trusty Tair 14.04"
+      os: linux
       dist: trusty
     - name: "Ubuntu Xenial Xerus 16.04"
+      os: linux
       dist: xenial
   allow_failures:
-    - name: "OS X"
+    - name: "Ubuntu Precise Pangolin 12.04"
+      os: linux
+      dist: precise
+   - name: "OS X"
       os: osx
 install:
-  - "pip install -r requirements.txt"
+  - "sudo pip install -r requirements.txt"
   - "ansible-galaxy install -r requirements.yaml"
 script:
   - "ansible-lint tasks/*.yaml"
