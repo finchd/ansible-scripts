@@ -1,0 +1,26 @@
+[Unit]
+Description=Shaarli Bookmark Manager Container
+After=docker.service
+Requires=docker.service
+
+
+[Service]
+Restart=always
+
+# Put any environment you want in an included file, like $host- or $domainname in this example
+EnvironmentFile=/etc/sysconfig/box-environment
+
+# It's just an example..
+ExecStart=/usr/bin/docker run \
+  -p 28010:80 \
+  --name ${hostname}-shaarli \
+  --hostname shaarli.${domainname} \
+  -v /srv/docker-volumes-local/shaarli-data:/var/www/shaarli/data:rw \
+  -v /etc/localtime:/etc/localtime:ro \
+  shaarli/shaarli:latest
+
+ExecStop=/usr/bin/docker rm -f ${hostname}-shaarli
+
+
+[Install]
+WantedBy=multi-user.target
