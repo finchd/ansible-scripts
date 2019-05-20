@@ -1,0 +1,24 @@
+---
+- name: Check if gitkraken is installed (https://www.gitkraken.com/download)
+  command: dpkg-query -W gitkraken | awk '{print $2}'; exit ${PIPESTATUS[0]}
+  ignore_errors: true
+  register: gitkraken_package_check_deb
+  changed_when: "gitkraken_package_check_deb.rc == 1"
+  failed_when: "gitkraken_package_check_deb.rc > 1"
+- name: print command registered object for dpkg-query -W gitkraken
+  debug:
+    var: gitkraken_package_check_deb
+- name: print if version is older than the last known one - then we need to update even if it is installed!
+  debug:
+    msg: "update gitkraken to 5.0.4!"
+  when: "gitkraken_package_check_deb.stdout is version_compare('5.0.4', '<')"
+- name: Download the gitkraken .deb, unversioned, last known was 5.0.4 on 2019-03-27
+  get_url:
+    url: "https://release.gitkraken.com/linux/gitkraken-amd64.deb"
+    dest: "/tmp/gitkraken-amd64.deb"
+  when: "gitkraken_package_check_deb.rc == 1 or gitkraken_package_check_deb.stdout is version_compare('5.0.4', '<')"
+- name: install gitkraken
+  apt:
+    deb: "/tmp/gitkraken-amd64.deb"
+  become: true
+  when: "gitkraken_package_check_deb.rc == 1 or gitkraken_package_check_deb.stdout is version_compare('5.0.4', '<')"
