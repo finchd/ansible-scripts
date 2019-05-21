@@ -1,4 +1,4 @@
-ansible==2.7.1
+ansible==2.7.8
 ansible-lint==3.4.23
 cryptography==1.5.3
 Glances==3.0.2
@@ -6,6 +6,6 @@ molecule==2.19.0
 psutil==5.4.6
 pywinrm==0.3.0
 PyYAML==3.13
-requests==2.18.4
+requests==2.20.0
 six==1.11.0
 yamllint==1.11.1
