@@ -1,4 +1,4 @@
-ansible==2.7.12
+ansible==2.7.16
 ansible-lint==3.4.23
 cryptography==1.5.3
 Glances==3.0.2
