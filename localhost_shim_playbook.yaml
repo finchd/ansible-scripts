@@ -1,6 +1,6 @@
 - hosts: localhost
   roles:
-    - role: stefangweichinger.rclone
+    - role: stefangweichinger.ansible_rclone
       vars:
         - rclone_version: '1.42'
     - role: robertdebock.mitogen
