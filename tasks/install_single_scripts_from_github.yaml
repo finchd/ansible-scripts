@@ -1,9 +1,17 @@
 ---
-#    - name: Install github-markdown-toc from GitHub
+#    - name: Install X from GitHub
+
+#vars:
+# url
+# destination
+# url-mode 1,2,3,4,5
+# permissions mode
+# 
 
 # TODO add "latest" checking.
 # - name: Make /tmp/ temporary folder
 
+## mode 1
 - name: Download latest single-file script from master branch
   get_url:
     url: https://raw.githubusercontent.com/ekalinin/github-markdown-toc/master/gh-md-toc
@@ -12,12 +20,23 @@
 
 # - name: Check if it matches last-known file
 
+## mode 2
 # - name: Download single-file script from last tested commit
 #   get_url:
 #     url: https://raw.githubusercontent.com/ekalinin/github-markdown-toc/41236dc086b240a3018484af84896707de6cdf88/gh-md-toc
 #     dest: ~/bin/gh-md-toc
 #     mode: 0700
 
-# - name: Move file in ~/bin
+## mode 3
+# - name: Download named release single-binary
+#   get_url:
+#     url: https://github.com/aws/copilot-cli/releases/download/v0.1.0/copilot-linux-v0.1.0
+#     dest: ~/.local/bin/copilot
+#     mode: 0700
+    
+## mode 4
+#- name: Download and extract release archive
+#    ???:
 
-# - name: Make file executable only for the user
+##mode 5
+# - name: Download and extract GitHub Package type archive
