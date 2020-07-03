@@ -2,6 +2,7 @@ finchd's ansible-scripts
 ========================
 
 [![Build Status](https://travis-ci.com/finchd/ansible-scripts.svg?branch=master)](https://travis-ci.com/finchd/ansible-scripts)
+[![Gitpod ready-to-code](https://img.shields.io/badge/Gitpod-ready--to--code-blue?logo=gitpod)](https://gitpod.io/#https://github.com/finchd/ansible-scripts)
 
 Everybody has a script staging repo, this one's mine.
 Place for one-liners and single-purpose playbooks. Playbooks may get turned into modules or roles as they grow in complexity, but templates/patterns should remain here.
