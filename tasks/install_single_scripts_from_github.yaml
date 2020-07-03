@@ -33,7 +33,7 @@
 #     url: https://github.com/aws/copilot-cli/releases/download/v0.1.0/copilot-linux-v0.1.0
 #     dest: ~/.local/bin/copilot
 #     mode: 0700
-    
+
 ## mode 4
 #- name: Download and extract release archive
 #    ???:

@@ -22,3 +22,4 @@
     deb: "/tmp/gitkraken-amd64.deb"
   become: true
   when: "gitkraken_package_check_deb.rc == 1 or gitkraken_package_check_deb.stdout is version_compare('5.0.4', '<')"
+  tags: become
