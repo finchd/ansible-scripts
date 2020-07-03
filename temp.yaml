@@ -16,5 +16,6 @@
         copy: no
         creates: '/tmp/rclone_setup/rclone-v{{ rclone_version }}-linux-amd64'
       when: rclone_version != 'beta'
-      become: yes
+      become: true
+      tags: become
 
