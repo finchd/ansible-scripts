@@ -12,4 +12,4 @@ FROM gitpod/workspace-full
 # 1. testing roles will have to be done locally: rclone/mitogen
 
 # 2. setup_ansible_tasks
-RUN apt install -y gcc python-dev libffi-dev libssl-dev
+#RUN apt install -y gcc python-dev libffi-dev libssl-dev #oops doesn't work. needs more testing.
