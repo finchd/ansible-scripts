@@ -3,4 +3,4 @@ image:
 
 tasks:
   - init: pip install -r ./requirements.txt && ansible-galaxy install -r requirements.yaml
-    command: ansible-playbook --skip-tags "become"
+    command: ansible-playbook --skip-tags "become" ./localhost_shim_playbook.yaml
